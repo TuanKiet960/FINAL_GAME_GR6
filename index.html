@@ -189,61 +189,41 @@ body{background:#1a0a00;min-height:100vh;margin:0;padding:0}
 
 
 const QUESTIONS = [
-  {q:"Việt Nam hiện có bao nhiêu dân tộc anh em?",a:["53 dân tộc","54 dân tộc","Hơn 50 dân tộc","Khoảng 60 dân tộc"],c:1},
-  {q:"Đặc điểm cư trú phổ biến của các dân tộc ở Việt Nam là gì?",a:["Sống tách biệt hoàn toàn với nhau","Cư trú xen kẽ và đan xen giữa các vùng","Chỉ sống ở các thành phố lớn","Chỉ sinh sống ở vùng đồng bằng"],c:1},
-  {q:"Truyền thống đoàn kết dân tộc của Việt Nam được hình thành chủ yếu từ đâu?",a:["Quá trình dựng nước và giữ nước lâu dài","Sự phát triển của kinh tế thị trường","Quá trình công nghiệp hóa hiện đại","Giao lưu thương mại quốc tế"],c:0},
-  {q:"Mỗi dân tộc có bản sắc riêng góp phần tạo nên điều gì?",a:["Một nền văn hóa Việt Nam phong phú và đa dạng","Sự chia tách rõ rệt giữa các vùng miền","Một xã hội khép kín và ít giao lưu","Một hệ thống văn hóa giống nhau hoàn toàn"],c:0},
-  {q:"Tín ngưỡng thờ cúng Hùng Vương thể hiện điều gì?",a:["Tinh thần cộng đồng và nguồn gốc chung","Sự phân biệt giữa các dân tộc","Tính riêng lẻ của từng vùng","Sự khác biệt trong tôn giáo"],c:0},
-  {q:"Nguyên tắc cơ bản trong chính sách dân tộc là gì?",a:["Bình đẳng, đoàn kết và tương trợ","Ưu tiên một dân tộc duy nhất","Chia tách theo vùng cư trú","Tạo sự cạnh tranh giữa các dân tộc"],c:0},
-  {q:"Đoàn kết dân tộc có ý nghĩa gì đối với đất nước?",a:["Tạo nên sức mạnh để xây dựng và bảo vệ Tổ quốc","Làm tăng sự chia rẽ trong xã hội","Chỉ có ý nghĩa về mặt tinh thần","Không ảnh hưởng nhiều đến phát triển đất nước"],c:0},
-  {q:"Vì sao cần tôn trọng bản sắc văn hóa của các dân tộc?",a:["Vì làm cho văn hóa Việt Nam phong phú hơn","Vì giúp các dân tộc sống tách biệt với nhau","Vì làm giảm sự giao lưu văn hóa","Vì giúp xóa bỏ mọi khác biệt"],c:0},
-  {q:"Các dân tộc ở Việt Nam có quyền gì?",a:["Quyền bình đẳng trên mọi phương diện","Quyền tự trị hoàn toàn","Quyền lập hệ thống luật riêng","Quyền tách riêng lãnh thổ"],c:0},
-  {q:"Chính sách dân tộc của Nhà nước hướng tới điều gì?",a:["Phát triển đồng đều giữa các dân tộc và vùng miền","Tăng khoảng cách giữa thành thị và nông thôn","Chỉ ưu tiên các đô thị lớn","Chỉ tập trung vào kinh tế"],c:0},
-  {q:"Vấn đề dân tộc và đoàn kết dân tộc được xem là gì?",a:["Vấn đề chiến lược, cơ bản, lâu dài","Vấn đề ngắn hạn, tạm thời","Việc riêng của từng địa phương","Nhiệm vụ phụ trong phát triển"],c:0},
-  {q:"Công tác dân tộc là nhiệm vụ của ai?",a:["Toàn Đảng, toàn dân, toàn quân và hệ thống chính trị","Chỉ của chính quyền miền núi","Chỉ của người dân tộc thiểu số","Chỉ của ngành giáo dục"],c:0},
-  {q:"Trong chính sách dân tộc, nguyên tắc cơ bản là gì?",a:["Đoàn kết, bình đẳng và tôn trọng lẫn nhau","Phân biệt theo số lượng dân số","Ưu tiên vùng đô thị trước","Giảm giao lưu giữa các dân tộc"],c:0},
-  {q:"Nhà nước cần đấu tranh chống tư tưởng nào?",a:["Tư tưởng dân tộc lớn và dân tộc hẹp hòi","Tư tưởng học tập và tiến bộ","Tư tưởng tôn trọng văn hóa","Tư tưởng hợp tác và phát triển"],c:0},
-  {q:"Chính sách dân tộc của Đảng và Nhà nước hướng đến những lĩnh vực nào?",a:["Chính trị, kinh tế, văn hóa, xã hội, an ninh – quốc phòng","Chỉ kinh tế và thương mại","Chỉ văn hóa và du lịch","Chỉ giáo dục và y tế"],c:0},
-  {q:"Trong lĩnh vực chính trị, chính sách dân tộc tập trung vào điều gì?",a:["Bảo đảm sự bình đẳng, đoàn kết và tôn trọng","Tạo quyền ưu tiên cho một dân tộc","Hạn chế vai trò của các vùng khó khăn","Tách riêng hệ thống quản lý"],c:0},
-  {q:"Trong lĩnh vực kinh tế, chính sách dân tộc nhằm mục tiêu gì?",a:["Phát triển kinh tế – xã hội vùng DTTS và miền núi","Chỉ phát triển thành phố lớn","Giảm đầu tư vào vùng khó khăn","Tăng chênh lệch thu nhập"],c:0},
-  {q:"Nội dung nào thuộc chính sách dân tộc về văn hóa?",a:["Bảo tồn ngôn ngữ và di sản văn hóa các dân tộc","Xóa bỏ mọi phong tục truyền thống","Chỉ sử dụng một ngôn ngữ duy nhất","Hạn chế các lễ hội dân tộc"],c:0},
-  {q:"Nội dung nào thuộc chính sách dân tộc về xã hội?",a:["Mở rộng giáo dục, học bổng và trường nội trú","Chỉ xây dựng khu thương mại","Cắt giảm hỗ trợ học tập","Không cần chăm lo đời sống"],c:0},
-  {q:"Trong lĩnh vực an ninh – quốc phòng, chính sách dân tộc nhằm mục tiêu gì?",a:["Giữ vững ổn định và an ninh biên giới","Làm suy yếu trật tự xã hội","Tạo sự tách biệt giữa các địa phương","Giảm vai trò của cộng đồng"],c:0},
-  {q:"Tỷ lệ hộ nghèo ở vùng DTTS giai đoạn 2016–2020 đã như thế nào?",a:["Giảm mạnh qua từng năm","Tăng mạnh do thiếu đầu tư","Không thay đổi","Tăng gấp đôi"],c:0},
-  {q:"Theo số liệu trong bài, các xã trong cả nước đã đạt điều gì?",a:["Được phủ điện lưới quốc gia","Có đầy đủ sân bay","Có hệ thống tàu điện","Có cảng biển lớn"],c:0},
-  {q:"Chương trình MTQG 1719 có ngân sách bao nhiêu?",a:["171.900 tỷ đồng","13.766 tỷ đồng","137.664 tỷ đồng","1.376 tỷ đồng"],c:2},
-  {q:"Chương trình 135 được triển khai từ khi nào?",a:["1998","2003","2010","2021"],c:0},
-  {q:"Chương trình 135 chủ yếu đầu tư vào gì?",a:["Hạ tầng thiết yếu","Khu giải trí hiện đại","Trung tâm tài chính","Công viên công nghệ"],c:0},
-  {q:"Chương trình MTQG 1719 tập trung giải quyết vấn đề gì?",a:["Các vấn đề cơ bản của vùng DTTS và miền núi","Chỉ phát triển đô thị lớn","Chỉ tập trung du lịch","Chỉ ưu tiên xuất khẩu"],c:0},
-  {q:"Chính sách đặc thù cho DTTS có nội dung nào sau đây?",a:["Hỗ trợ đất ở, đất sản xuất và nước sinh hoạt","Giảm hỗ trợ cho vùng khó khăn","Tăng thuế đối với hộ nghèo","Hạn chế đầu tư hạ tầng"],c:0},
-  {q:"Bảo tồn văn hóa DTTS trong bài được thể hiện qua điều gì?",a:["Nhiều di sản văn hóa phi vật thể được vinh danh","Xóa bỏ hoàn toàn lễ hội truyền thống","Không cho lưu giữ ngôn ngữ dân tộc","Chỉ tập trung văn hóa thành thị"],c:0},
-  {q:"Ngôn ngữ DTTS được bảo tồn bằng cách nào?",a:["Đưa vào giảng dạy trong trường học","Loại bỏ khỏi hệ thống giáo dục","Chỉ sử dụng trong gia đình","Không cần bảo tồn nữa"],c:0},
-  {q:"Thành tựu '54 dân tộc cùng bình đẳng' muốn nhấn mạnh điều gì?",a:["Mọi dân tộc đều có vị trí và quyền lợi như nhau","Chỉ dân tộc đông người mới quan trọng","DTTS không cần được quan tâm","Mỗi dân tộc phải tách riêng để phát triển"],c:0},
-  {q:"Biểu hiện nguy hiểm nào được nêu trong bài?",a:["Kích động sắc tộc và tôn giáo","Giao lưu văn hóa giữa các vùng","Hỗ trợ cộng đồng khó khăn","Tổ chức các hoạt động đoàn kết"],c:0},
-  {q:"Những tổ chức như Tin Lành Đề Ga, Hà Mòn bị phê phán vì điều gì?",a:["Lợi dụng tôn giáo để kích động ly khai","Góp phần giữ gìn văn hóa","Hỗ trợ phát triển giáo dục","Tăng cường sự gắn kết"],c:0},
-  {q:"Hành vi xuyên tạc chính sách dân tộc thường diễn ra ở đâu?",a:["Trên mạng xã hội và các kênh thông tin","Trong thư viện trường học","Trong lớp học chính khóa","Trong các hoạt động cộng đồng"],c:0},
-  {q:"Tuyên truyền sai lệch về chính sách dân tộc có thể gây ra điều gì?",a:["Gieo rắc hoang mang và chia rẽ","Tăng sự tin tưởng và đồng thuận","Củng cố tinh thần đoàn kết","Giúp mọi người hiểu rõ hơn"],c:0},
-  {q:"Kỳ thị và phân biệt đối xử giữa các dân tộc gây tác hại gì?",a:["Làm tổn thương tinh thần và phá vỡ đoàn kết","Làm xã hội gắn bó hơn","Tăng sự hiểu biết lẫn nhau","Thúc đẩy phát triển bền vững"],c:0},
-  {q:"Một hậu quả của chia rẽ dân tộc là gì?",a:["Làm mất ổn định xã hội","Làm tăng sự tin cậy","Làm cộng đồng gắn kết hơn","Làm đời sống phát triển hơn"],c:0},
-  {q:"Chia rẽ dân tộc có thể dẫn đến tình trạng nào sau đây?",a:["Làm suy yếu sức mạnh bảo vệ Tổ quốc","Tăng cường an ninh quốc gia","Thúc đẩy phát triển nhanh","Làm mọi người hiểu nhau hơn"],c:0},
-  {q:"Chia rẽ dân tộc còn gây ra điều gì cho vùng DTTS?",a:["Cản trở phát triển kinh tế – xã hội","Tạo thêm cơ hội đầu tư","Nâng cao dân trí nhanh chóng","Làm đời sống ổn định hơn"],c:0},
-  {q:"Vì sao cần cảnh giác với thông tin sai lệch trên mạng xã hội?",a:["Vì dễ bị lợi dụng để khoét sâu mâu thuẫn","Vì luôn là nguồn thông tin đúng","Vì không ảnh hưởng gì đến xã hội","Vì chỉ mang tính giải trí"],c:0},
-  {q:"Trước hành vi chia rẽ dân tộc, chúng ta cần làm gì?",a:["Lên án và phản bác kịp thời","Làm ngơ để tránh phiền phức","Chia sẻ cho nhiều người hơn","Đồng tình để dễ hòa nhập"],c:0},
-  {q:"Câu nói nổi tiếng nào được trích trong bài thuyết trình?",a:["Đoàn kết, đoàn kết, đại đoàn kết!","Học, học nữa, học mãi!","Có công mài sắt, có ngày nên kim","Đi một ngày đàng, học một sàng khôn"],c:0},
-  {q:"Theo bài, đoàn kết không chỉ là gì?",a:["Một khẩu hiệu trên giấy","Một giá trị cần thực hiện","Một nguyên tắc xã hội","Một nội dung trang trí"],c:0},
-  {q:"Trách nhiệm đầu tiên của sinh viên đối với đoàn kết dân tộc là gì?",a:["Tôn trọng văn hóa và phong tục các dân tộc","Chỉ quan tâm đến nhóm mình","Phân biệt giữa các vùng miền","Xa lánh những người khác biệt"],c:0},
-  {q:"Khi gặp hành vi kỳ thị, sinh viên nên làm gì?",a:["Phê phán và không đồng tình","Làm ngơ cho qua","Cổ vũ để tránh tranh cãi","Chia sẻ thêm trên mạng"],c:0},
-  {q:"Một việc làm thiết thực để góp phần đoàn kết là gì?",a:["Tham gia thiện nguyện và hỗ trợ đồng bào khó khăn","Tránh tiếp xúc với cộng đồng khác","Chê bai phong tục vùng khác","Tạo sự so sánh giữa các dân tộc"],c:0},
-  {q:"Trước thông tin sai lệch, thế hệ trẻ cần có thái độ gì?",a:["Cảnh giác và kiểm chứng","Tin ngay không cần xem lại","Chia sẻ cho nhanh","Bỏ qua hoàn toàn"],c:0},
-  {q:"Một cách lan tỏa tinh thần đoàn kết dân tộc là gì?",a:["Chia sẻ những hình ảnh đẹp về sự gắn bó","Tạo ra sự đối lập giữa các vùng","Bôi xấu văn hóa khác","Cổ vũ sự tách biệt"],c:0},
-  {q:"Theo bài, đoàn kết giữa các dân tộc gắn với trách nhiệm của ai?",a:["Mỗi người Việt Nam","Chỉ lãnh đạo các cấp","Chỉ người dân tộc thiểu số","Chỉ học sinh, sinh viên"],c:0},
-  {q:"Thông điệp kết luận của bài thuyết trình là gì?",a:["54 dân tộc một lòng vì Tổ quốc Việt Nam","Mỗi dân tộc tự phát triển riêng","Chỉ ưu tiên một vùng nhất định","Tách biệt để dễ quản lý"],c:0},
-  {q:"Giá trị xuyên suốt bài thuyết trình là gì?",a:["Bình đẳng, đoàn kết và tương trợ","Phân biệt, đối lập và chia rẽ","Cạnh tranh giữa các cộng đồng","Tách biệt và khép kín"],c:0}
-];
+  {q:"Tinh thần đoàn kết dân tộc ở Việt Nam được hình thành chủ yếu từ đâu?",a:["Từ chính sách hiện đại của Nhà nước","Từ quá trình dựng nước và giữ nước lâu dài","Từ ảnh hưởng của các quốc gia khác","Từ sự phát triển của kinh tế thị trường"],c:1},
+  {q:"Đặc điểm cư trú của các dân tộc ở Việt Nam là gì?",a:["Sống tách biệt hoàn toàn theo từng vùng","Chủ yếu tập trung ở đô thị lớn","Cư trú xen kẽ với nhau","Phân bố đồng đều theo dân số"],c:2},
+  {q:"Sự đa dạng văn hóa ở Việt Nam được thể hiện rõ nhất qua yếu tố nào?",a:["Hệ thống chính trị","Ngôn ngữ, trang phục và phong tục","Tốc độ phát triển kinh tế","Trình độ khoa học kỹ thuật"],c:1},
+  {q:"Tín ngưỡng thờ cúng Hùng Vương mang ý nghĩa gì?",a:["Thể hiện sự khác biệt giữa các dân tộc","Khẳng định quyền lực của Nhà nước","Tượng trưng cho nguồn gốc chung và sự đoàn kết","Là hoạt động mang tính địa phương"],c:2},
+  {q:"Đoàn kết dân tộc có vai trò quan trọng nhất trong lĩnh vực nào?",a:["Chỉ trong phát triển kinh tế","Chỉ trong giáo dục","Trong mọi mặt của đời sống xã hội","Chỉ trong văn hóa truyền thống"],c:2},
+  {q:"Vì sao cần giữ gìn đoàn kết giữa các dân tộc?",a:["Để duy trì sự khác biệt giữa các nhóm","Để tăng cạnh tranh giữa các vùng","Để tạo sức mạnh chung cho quốc gia","Để giảm vai trò của Nhà nước"],c:2},
+  {q:"Chính sách dân tộc của Nhà nước hướng đến điều gì?",a:["Tạo sự giống nhau hoàn toàn giữa các dân tộc","Phát triển riêng từng dân tộc","Bình đẳng, đoàn kết và cùng phát triển","Ưu tiên một số dân tộc nhất định"],c:2},
+  {q:"Công tác dân tộc được xác định là nhiệm vụ của ai?",a:["Chỉ của Nhà nước","Chỉ của địa phương","Của toàn bộ hệ thống chính trị","Chỉ của các tổ chức xã hội"],c:2},
+  {q:"Trong lĩnh vực kinh tế, chính sách dân tộc tập trung vào điều gì?",a:["Phát triển công nghiệp nặng","Tăng thuế ở vùng khó khăn","Hỗ trợ phát triển vùng dân tộc và miền núi","Giảm đầu tư vào nông nghiệp"],c:2},
+  {q:"Chính sách văn hóa đối với các dân tộc thiểu số nhằm mục đích gì?",a:["Thay đổi hoàn toàn phong tục","Giữ gìn và phát huy bản sắc văn hóa","Loại bỏ ngôn ngữ riêng","Đồng nhất văn hóa"],c:1},
+  {q:"Chính sách xã hội đối với đồng bào dân tộc thiểu số tập trung vào nội dung nào?",a:["Hạn chế giáo dục","Mở rộng cơ hội học tập và an sinh","Giảm đầu tư y tế","Tăng chi phí sinh hoạt"],c:1},
+  {q:"An ninh – quốc phòng ở vùng dân tộc nhằm mục tiêu gì?",a:["Tăng kiểm soát dân cư","Giữ ổn định và bảo vệ chủ quyền","Giảm giao lưu giữa các vùng","Tập trung phát triển đô thị"],c:1},
+  {q:"Một trong những kết quả của chính sách dân tộc là gì?",a:["Gia tăng khoảng cách giàu nghèo","Đời sống người dân được cải thiện","Giảm cơ sở hạ tầng","Hạn chế tiếp cận điện"],c:1},
+  {q:"Việc đầu tư cơ sở hạ tầng ở vùng dân tộc giúp điều gì?",a:["Giảm sự kết nối","Tăng khó khăn trong sinh hoạt","Nâng cao chất lượng cuộc sống","Hạn chế phát triển kinh tế"],c:2},
+  {q:"Chương trình hỗ trợ vùng khó khăn chủ yếu nhằm mục đích gì?",a:["Tăng chi phí sinh hoạt","Giảm dân số","Phát triển kinh tế – xã hội","Tách biệt các dân tộc"],c:2},
+  {q:"Hành vi nào sau đây thể hiện sự kỳ thị dân tộc?",a:["Tôn trọng văn hóa khác","Học hỏi phong tục","Coi thường ngôn ngữ của dân tộc khác","Hỗ trợ vùng khó khăn"],c:2},
+  {q:"Kỳ thị dân tộc gây ra hậu quả gì?",a:["Tăng đoàn kết","Gây chia rẽ cộng đồng","Tăng phát triển kinh tế","Cải thiện đời sống"],c:1},
+  {q:"Các thế lực xấu thường lợi dụng điều gì để gây chia rẽ?",a:["Giáo dục","Văn hóa, tôn giáo và mạng xã hội","Khoa học kỹ thuật","Thể thao"],c:1},
+  {q:"Thông tin sai lệch về dân tộc có thể dẫn đến điều gì?",a:["Tăng hiểu biết","Gây hoang mang xã hội","Cải thiện nhận thức","Tăng đoàn kết"],c:1},
+  {q:"Đoàn kết dân tộc có vai trò như thế nào đối với quốc gia?",a:["Không quan trọng","Là yếu tố phụ","Là nền tảng sức mạnh","Chỉ mang tính hình thức"],c:2},
+  {q:"Thế hệ trẻ cần làm gì để góp phần giữ đoàn kết dân tộc?",a:["Phân biệt văn hóa","Tôn trọng và học hỏi lẫn nhau","Tránh tiếp xúc","Chỉ quan tâm bản thân"],c:1},
+  {q:"Việc bảo tồn văn hóa dân tộc có ý nghĩa gì?",a:["Làm giảm phát triển","Giữ gìn bản sắc dân tộc","Tạo sự chia rẽ","Làm mất đoàn kết"],c:1},
+  {q:"Đoàn kết dân tộc cần được thể hiện như thế nào?",a:["Chỉ qua khẩu hiệu","Qua hành động cụ thể","Qua văn bản","Qua lý thuyết"],c:1},
+  {q:"Sự phát triển vùng dân tộc góp phần gì cho đất nước?",a:["Làm giảm kinh tế","Tăng sự chênh lệch","Phát triển bền vững chung","Giảm hội nhập"],c:2},
+  {q:"Một xã hội đoàn kết sẽ có đặc điểm gì?",a:["Nhiều xung đột","Ổn định và phát triển","Thiếu hợp tác","Phân biệt đối xử"],c:1},
+  {q:"Việc tôn trọng sự khác biệt văn hóa giúp gì?",a:["Tăng xung đột","Giảm hiểu biết","Tăng sự gắn kết","Tạo khoảng cách"],c:2},
+  {q:"Đâu là biểu hiện của đoàn kết dân tộc?",a:["Hỗ trợ lẫn nhau khi khó khăn","Phân biệt vùng miền","Cạnh tranh tiêu cực","Loại bỏ văn hóa khác"],c:0},
+  {q:"Chính sách dân tộc cần hướng đến điều gì lâu dài?",a:["Phát triển riêng lẻ","Phát triển bền vững và toàn diện","Tập trung ngắn hạn","Giảm hỗ trợ"],c:1},
+  {q:"Một trong những nguy cơ lớn nhất của chia rẽ dân tộc là gì?",a:["Tăng giao lưu","Mất ổn định xã hội","Tăng phát triển","Cải thiện kinh tế"],c:1},
+  {q:"Tinh thần 'đại đoàn kết' có ý nghĩa gì?",a:["Chỉ mang tính khẩu hiệu","Là sức mạnh quyết định thành công","Không quan trọng","Chỉ áp dụng trong quá khứ"],c:1},
+]
 
 let state={
   questions:[],qIdx:0,score:0,correct:0,
-  timeLeft:420,timerInterval:null,
+  timeLeft:20,timerInterval:null,
   pendingReward:null,
   gameEnded:false,startTime:null,
   playedOnce:false
@@ -260,34 +240,53 @@ function startGame(){
   if(state.playedOnce) return;
   state.playedOnce=true;
   startBGM();
-  state.questions=shuffle(QUESTIONS).slice(0,50);
+  state.questions=shuffle(QUESTIONS).slice(0,30);
   state.qIdx=0;state.score=0;state.correct=0;
   state.timeLeft=420;state.gameEnded=false;state.startTime=Date.now();
   showScreen('game');
   loadQuestion();
-  updateDots();
-  startTimer();
 }
 
-function startTimer(){
+function startQuestionTimer(){
+  clearInterval(state.timerInterval);
+  state.timeLeft=20;
+  updateTimerUI();
   state.timerInterval=setInterval(()=>{
     state.timeLeft--;
-    const fill=document.getElementById('timer-fill');
-    if(fill){
-      fill.style.width=((state.timeLeft/420)*100)+'%';
-      if(state.timeLeft<=60){fill.classList.add('urgent');if(state.timeLeft===60||state.timeLeft===30||state.timeLeft===10)sfxTimeWarning();}
+    updateTimerUI();
+    if(state.timeLeft<=5 && state.timeLeft>0) sfxTimeWarning();
+    if(state.timeLeft<=0){
+      clearInterval(state.timerInterval);
+      // Time's up - disable buttons and auto-skip
+      const btns=document.querySelectorAll('.ans-btn');
+      btns.forEach(b=>b.disabled=true);
+      sfxWrong();
+      // flash correct answer
+      const q=state.questions[state.qIdx];
+      if(btns[q.c]) btns[q.c].classList.add('correct');
+      setTimeout(()=>{
+        state.qIdx++;
+        loadQuestion();
+      },1000);
     }
-    const m=Math.floor(state.timeLeft/60),s=state.timeLeft%60;
-    const el=document.getElementById('time-left-text');
-    if(el) el.textContent=m+':'+(s<10?'0':'')+s;
-    if(state.timeLeft<=0) endGame();
   },1000);
 }
+function updateTimerUI(){
+  const fill=document.getElementById('timer-fill');
+  const el=document.getElementById('time-left-text');
+  if(fill){
+    fill.style.width=(state.timeLeft/20*100)+'%';
+    if(state.timeLeft<=5){fill.classList.add('urgent');}
+    else{fill.classList.remove('urgent');}
+  }
+  if(el) el.textContent=state.timeLeft+'s';
+}
+function startTimer(){ startQuestionTimer(); }
 
 function loadQuestion(){
   if(state.qIdx>=state.questions.length){endGame();return;}
   const q=state.questions[state.qIdx];
-  document.getElementById('q-counter').textContent='Câu '+(state.qIdx+1)+' / 50';
+  document.getElementById('q-counter').textContent='Câu '+(state.qIdx+1)+' / 30';
   document.getElementById('question-text').textContent=q.q;
   const grid=document.getElementById('answers-grid');
   grid.innerHTML='';
@@ -299,9 +298,11 @@ function loadQuestion(){
     grid.appendChild(btn);
   });
   updateDots();
+  startQuestionTimer();
 }
 
 function selectAnswer(ansIdx,correct){
+  clearInterval(state.timerInterval);
   const btns=document.querySelectorAll('.ans-btn');
   btns.forEach(b=>b.disabled=true);
   btns[ansIdx].classList.add(ansIdx===correct?'correct':'wrong');
@@ -395,6 +396,7 @@ function openChest(chestIdx){
 
 function afterReward(){
   if(state.pendingReward && state.pendingReward.type==='attack'){
+    clearInterval(state.timerInterval);
     launchMinigame();
   } else {
     state.qIdx++;
@@ -730,41 +732,153 @@ function setupPatternRepeat(box){
   showPattern();
 }
 
-/* --- MG9: Gõ Nhanh Từ Khóa --- */
+/* --- MG9: Nối Đôi – Ghép Cặp --- */
 function setupTypingRace(box){
-  const words=['ĐOÀN KẾT','DÂN TỘC','VIỆT NAM','HÒA BÌNH','BẢN SẮC','TRUYỀN THỐNG','VĂN HÓA','BÌNH ĐẲNG'];
-  const target=words[Math.floor(Math.random()*words.length)];
-  let done=false,timeLeft=8;
-  box.innerHTML=`<div class="minigame-title">⌨️ Gõ Nhanh Từ Khóa</div>
-    <div class="minigame-desc">Gõ đúng từ sau trong 8 giây!</div>
-    <div id="mg-timer-bar"><div id="mg-timer-fill" style="width:100%"></div></div>
-    <div style="font-size:28px;font-weight:700;color:#f5c842;margin:16px 0;letter-spacing:4px">${target}</div>
-    <input id="mg-type-input" type="text" placeholder="Gõ vào đây..." autocomplete="off"
-      style="background:rgba(40,20,0,0.8);border:2px solid #c9922a;border-radius:6px;padding:12px 16px;font-size:20px;color:#f5e6c8;text-align:center;width:100%;max-width:320px;font-family:Be Vietnam Pro,sans-serif;letter-spacing:3px;text-transform:uppercase;outline:none">
-    <div id="mg-type-feedback" style="font-size:13px;margin-top:8px;color:#c9922a;min-height:20px"></div>`;
-  setTimeout(()=>{const inp=document.getElementById('mg-type-input');if(inp)inp.focus();},100);
-  const iv=setInterval(()=>{
-    timeLeft-=0.1;
-    const f=document.getElementById('mg-timer-fill');
-    if(f)f.style.width=Math.max(0,(timeLeft/8)*100)+'%';
-    if(timeLeft<=0&&!done){done=true;clearInterval(iv);mgResult(false);}
-  },100);
-  document.getElementById('mg-type-input').addEventListener('input',function(){
-    const val=this.value.toUpperCase().trim();
-    const fb=document.getElementById('mg-type-feedback');
-    if(val===target){
-      done=true;clearInterval(iv);
-      this.style.borderColor='#4caf50';
-      mgResult(true);
-    } else if(target.startsWith(val)){
-      if(fb)fb.style.color='#4caf50';
-      if(fb)fb.textContent=val.length+'/'+target.length+' ký tự';
+  // Pairs: dân tộc ↔ vùng/đặc trưng
+  const allPairs=[
+    {left:'Hmông',right:'Tây Bắc'},
+    {left:'Khmer',right:'Nam Bộ'},
+    {left:'Chăm',right:'Duyên hải'},
+    {left:'Tày',right:'Đông Bắc'},
+    {left:'Ê Đê',right:'Tây Nguyên'},
+    {left:'Thái',right:'Tây Bắc'},
+    {left:'Mường',right:'Hòa Bình'},
+    {left:'Ba Na',right:'Tây Nguyên'},
+  ];
+  const pairs=shuffle(allPairs).slice(0,4);
+  let done=false;
+  // selected state: {left: idx|null, right: idx|null}
+  let selLeft=null,selRight=null;
+  let matched=[];
+  let wrongs=0;
+
+  const render=()=>{
+    const leftDiv=document.getElementById('mg-pair-left');
+    const rightDiv=document.getElementById('mg-pair-right');
+    if(!leftDiv||!rightDiv) return;
+    leftDiv.innerHTML='';
+    rightDiv.innerHTML='';
+    const shuffledRight=document.getElementById('mg-pair-right')?
+      JSON.parse(document.getElementById('mg-pair-right').dataset.order||'null'):null;
+    pairs.forEach((p,i)=>{
+      const lb=document.createElement('div');
+      lb.className='pair-btn';
+      lb.textContent=p.left;
+      lb.dataset.idx=i;
+      if(matched.includes(i)){lb.style.background='rgba(34,120,34,0.4)';lb.style.borderColor='#4caf50';lb.style.cursor='default';}
+      else if(selLeft===i){lb.style.background='rgba(245,200,66,0.25)';lb.style.borderColor='#f5c842';}
+      lb.onclick=()=>{if(matched.includes(i)||done)return;selLeft=i;selRight=null;render();tryMatch();};
+      leftDiv.appendChild(lb);
+    });
+    const rightOrder=document.getElementById('mg-pair-right').dataset.order?
+      JSON.parse(document.getElementById('mg-pair-right').dataset.order):
+      shuffle(pairs.map((_,i)=>i));
+    document.getElementById('mg-pair-right').dataset.order=JSON.stringify(rightOrder);
+    rightOrder.forEach(ri=>{
+      const rb=document.createElement('div');
+      rb.className='pair-btn';
+      rb.textContent=pairs[ri].right;
+      rb.dataset.idx=ri;
+      if(matched.includes(ri)){rb.style.background='rgba(34,120,34,0.4)';rb.style.borderColor='#4caf50';rb.style.cursor='default';}
+      else if(selRight===ri){rb.style.background='rgba(245,200,66,0.25)';rb.style.borderColor='#f5c842';}
+      rb.onclick=()=>{if(matched.includes(ri)||done)return;selRight=ri;render();tryMatch();};
+      rightDiv.appendChild(rb);
+    });
+  };
+
+  const tryMatch=()=>{
+    if(selLeft===null||selRight===null) return;
+    const l=selLeft,r=selRight;
+    selLeft=null;selRight=null;
+    if(l===r){
+      // correct pair
+      matched.push(l);
+      render();
+      if(matched.length===pairs.length){done=true;mgResult(true);}
     } else {
-      if(fb)fb.style.color='#ff6666';
-      if(fb)fb.textContent='Sai rồi, thử lại!';
-      this.value='';
+      // wrong
+      wrongs++;
+      // flash red briefly
+      document.querySelectorAll('.pair-btn').forEach(b=>{
+        if(parseInt(b.dataset.idx)===l||parseInt(b.dataset.idx)===r)
+          b.style.background='rgba(200,30,30,0.35)';
+      });
+      setTimeout(()=>{render();},400);
+      if(wrongs>=3){done=true;setTimeout(()=>mgResult(false),400);}
     }
-  });
+  };
+
+  box.innerHTML=`<div class="minigame-title">🔗 Nối Đôi Dân Tộc</div>
+    <div class="minigame-desc">Ghép dân tộc với vùng đúng! Sai <strong style="color:#ff6666">3 lần</strong> là thua!</div>
+    <div style="font-size:12px;color:#c9922a;margin-bottom:10px">❌ Sai: <span id="mg-pair-wrongs">0</span>/3</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;max-width:400px;margin:0 auto">
+      <div id="mg-pair-left" style="display:flex;flex-direction:column;gap:8px"></div>
+      <div id="mg-pair-right" style="display:flex;flex-direction:column;gap:8px" data-order=""></div>
+    </div>`;
+
+  // Override tryMatch to update wrong counter display
+  const origTryMatch=tryMatch;
+  document.getElementById('mg-pair-left'); // ensure DOM ready
+
+  // Re-assign tryMatch to update UI
+  window._pairTryMatch=()=>{
+    if(selLeft===null||selRight===null) return;
+    const l=selLeft,r=selRight;
+    selLeft=null;selRight=null;
+    if(l===r){
+      matched.push(l);
+      render();
+      if(matched.length===pairs.length){done=true;mgResult(true);}
+    } else {
+      wrongs++;
+      const wEl=document.getElementById('mg-pair-wrongs');
+      if(wEl) wEl.textContent=wrongs;
+      document.querySelectorAll('.pair-btn').forEach(b=>{
+        if(parseInt(b.dataset.idx)===l||parseInt(b.dataset.idx)===r)
+          b.style.background='rgba(200,30,30,0.35)';
+      });
+      setTimeout(()=>{if(!done)render();},500);
+      if(wrongs>=3){done=true;setTimeout(()=>mgResult(false),500);}
+    }
+  };
+
+  // Patch render to use window._pairTryMatch
+  const pairRender=()=>{
+    const leftDiv=document.getElementById('mg-pair-left');
+    const rightDiv=document.getElementById('mg-pair-right');
+    if(!leftDiv||!rightDiv) return;
+    const savedOrder=rightDiv.dataset.order?JSON.parse(rightDiv.dataset.order):null;
+    const rightOrder=savedOrder&&savedOrder.length===pairs.length?savedOrder:shuffle(pairs.map((_,i)=>i));
+    rightDiv.dataset.order=JSON.stringify(rightOrder);
+    leftDiv.innerHTML='';
+    rightDiv.innerHTML='';
+    pairs.forEach((p,i)=>{
+      const lb=document.createElement('div');
+      lb.className='pair-btn';
+      lb.textContent=p.left;
+      lb.dataset.idx=i;
+      if(matched.includes(i)){lb.style.background='rgba(34,120,34,0.4)';lb.style.borderColor='#4caf50';lb.style.cursor='default';}
+      else if(selLeft===i){lb.style.background='rgba(245,200,66,0.25)';lb.style.borderColor='#f5c842';}
+      lb.onclick=()=>{if(matched.includes(i)||done)return;selLeft=i;selRight=null;pairRender();};
+      leftDiv.appendChild(lb);
+    });
+    rightOrder.forEach(ri=>{
+      const rb=document.createElement('div');
+      rb.className='pair-btn';
+      rb.textContent=pairs[ri].right;
+      rb.dataset.idx=ri;
+      if(matched.includes(ri)){rb.style.background='rgba(34,120,34,0.4)';rb.style.borderColor='#4caf50';rb.style.cursor='default';}
+      else if(selRight===ri){rb.style.background='rgba(245,200,66,0.25)';rb.style.borderColor='#f5c842';}
+      rb.onclick=()=>{
+        if(matched.includes(ri)||done)return;
+        selRight=ri;
+        pairRender();
+        window._pairTryMatch();
+      };
+      rightDiv.appendChild(rb);
+    });
+  };
+  pairRender();
 }
 
 /* --- MG10: Đập Chuột Chũi --- */
@@ -1044,7 +1158,7 @@ function updateDots(){
   if(!d) return;
   d.innerHTML='';
   const start=Math.max(0,state.qIdx-5);
-  const end=Math.min(50,state.qIdx+6);
+  const end=Math.min(30,state.qIdx+6);
   for(let i=start;i<end;i++){
     const dot=document.createElement('div');
     dot.className='dot'+(i<state.qIdx?' done':i===state.qIdx?' current':'');
@@ -1060,7 +1174,7 @@ function endGame(){
   const elapsed=Math.floor((Date.now()-state.startTime)/1000);
   const m=Math.floor(elapsed/60),s=elapsed%60;
   document.getElementById('final-score').textContent=state.score;
-  document.getElementById('end-correct').textContent=state.correct+'/50';
+  document.getElementById('end-correct').textContent=state.correct+'/30';
   document.getElementById('end-time').textContent=m+':'+(s<10?'0':'')+s;
   let rank,desc;
   if(state.score>=5000)     {rank='🏅 Anh Hùng Dân Tộc';      desc='Bạn xứng đáng là biểu tượng đoàn kết 54 dân tộc Việt Nam!';}
